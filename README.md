@@ -1,6 +1,6 @@
 # Aggregator
 
-Aggregates RSS feeds.
+A simple web application that allows you to aggregate RSS feeds into one feed.
 
 ## Requirements
 
@@ -14,6 +14,10 @@ cp .env.example .env
 ./vendor/bin/sail composer install
 ./vendor/bin/sail artisan migrate:fresh
 ```
+
+### Links
+
+Feed: http://localhost/api/entries
 
 ## Run tests
 
