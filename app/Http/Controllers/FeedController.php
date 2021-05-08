@@ -15,7 +15,9 @@ class FeedController extends Controller
      */
     public function index()
     {
-        //
+        $feeds = Feed::orderBy('date_modified', 'desc');
+
+        return view('feeds.index')->with('feeds', $feeds);
     }
 
     /**

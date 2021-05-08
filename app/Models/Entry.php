@@ -10,4 +10,10 @@ class Entry extends Model
     use HasFactory;
 
     protected $fillable = ['identifier', 'title', 'link', 'date_created', 'date_modified'];
+
+
+    public function feed()
+    {
+        return $this->belongsTo(Feed::class);
+    }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class EntryResource extends JsonResource
+class FeedResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,11 +15,7 @@ class EntryResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'title' => $this->title,
-            'link' => $this->link,
-            'date_created' => $this->date_created,
-            'date_modified' => $this->date_modified,
-            'feed' => new FeedResource($this->feed),
+            'name' => $this->name,
         ];
     }
 }

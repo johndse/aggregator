@@ -21,5 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/entries', function () {
-    return new EntryCollection(Entry::orderBy('date_modified', 'DESC')->paginate(25));
+    return new EntryCollection(Entry::with('feed')->orderBy('date_modified', 'DESC')->paginate(15));
 });
