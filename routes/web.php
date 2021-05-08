@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {});
+Route::redirect('/', '/feeds');
 
-Route::resource('feeds', FeedController::class);
+Route::resource('feeds', FeedController::class)->middleware('auth');
+
+require __DIR__.'/auth.php';

@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <h2 class="text-3xl text-blue-800 mb-6">Add feed</h2>
     <form method="POST" action="{{ route('feeds.store') }}">
         @csrf
@@ -19,4 +19,4 @@
             <button class="bg-blue-800 hover:bg-blue-600 text-white px-8 py-1.5 font-bold" type="submit">Add feed</button>
         </div>
     </form>
-</x-layout>
+</x-app-layout>
