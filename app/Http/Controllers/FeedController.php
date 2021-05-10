@@ -15,7 +15,7 @@ class FeedController extends Controller
      */
     public function index()
     {
-        $feeds = Feed::orderBy('date_modified', 'desc');
+        $feeds = Feed::all();
 
         return view('feeds.index')->with('feeds', $feeds);
     }
@@ -70,7 +70,7 @@ class FeedController extends Controller
      */
     public function edit(Feed $feed)
     {
-        //
+        return view('feeds.edit')->with('feed', $feed);
     }
 
     /**
@@ -82,7 +82,17 @@ class FeedController extends Controller
      */
     public function update(Request $request, Feed $feed)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+            'link' => ['required', new ValidFeed]
+        ]);
+
+        $feed->name = $validated['name'];
+        $feed->link = $validated['link'];
+
+        $feed->save();
+
+        return redirect()->route('feeds.show', [$feed]);
     }
 
     /**
