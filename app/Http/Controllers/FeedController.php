@@ -59,7 +59,11 @@ class FeedController extends Controller
      */
     public function show(Feed $feed)
     {
-        //
+        $count = $feed->entries()->count();
+
+        return view('feeds.show')
+            ->with('count', $count)
+            ->with('feed', $feed);
     }
 
     /**
